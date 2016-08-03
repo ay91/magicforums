@@ -1,147 +1,153 @@
 @import "font-awesome";
+.landing{
+  .background {
+      background-image: asset-url("finance.jpg");
+      height: calc(80vh - 52px);
+      width: 100%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.background {
-    background-image: asset-url("download.jpg");
-    height: calc(100vh - 52px);
-    width: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .background-2 {
+      background-image: asset-url("avenue.jpg");
+      height: 50vh;
+      width: 100%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 50px;
+    }
+
+  .features.container{
+    margin: 50px 0;
   }
 
-.background-2 {
-    background-image: asset-url("wave.jpg");
-    height: 50vh;
-    width: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-.features.container{
-  margin: 50px 0;
-}
-
-.features{
-  max-width: 1200px;
-  margin: 50px auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.feature {
-  flex: 0 0 280px;
-  margin: 20px 10px;
-}
-
-
-.features-title{
-  color: orange;
-}
-
-.short-underline{
-  width: 50px;
-  border-bottom: 2px solid orange;
-}
-
-.icon-settings{
-  margin: 20px 0;
-}
-
-@media all and (max-width: 1199px){
   .features{
-    max-width: 600px;
-  }
-}
-
-.pic-setting{
-  width: 100%;
-}
-
-.pictures{
-  max-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-@media all and (max-width: 1199px){
-  .pictures{
+    max-width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
-}
 
-.photo{
-  flex: 0 0 25%;
-  position: relative;
+  .feature {
+    flex: 0 0 280px;
+    margin: 20px 10px;
+  }
 
-  &:hover{
-    .yellow-layout{
-      opacity: 1;
-      transition: all 0.5s;
-      background-color: rgba(255,255,0,0.5);
+
+  .features-title{
+    color: orange;
+  }
+
+  .short-underline{
+    width: 50px;
+    border-bottom: 2px solid orange;
+  }
+
+  .icon-settings{
+    margin: 20px 0;
+  }
+
+  @media all and (max-width: 1199px){
+    .features{
+      max-width: 600px;
     }
   }
-}
+
+  .pic-setting{
+    width: 100%;
+  }
+
+  .pictures{
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 100%;
+  }
 
 
-.yellow-layout{
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(255,255,0,0.0);
 
-}
+  @media all and (max-width: 1199px){
+    .pictures{
+      justify-content: center;
+    }
+  }
 
-.layout-title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  .photo{
+    flex: 0 0 25%;
+    position: relative;
 
-.information{
-  margin: auto 200px;
-  align-items: center;
-}
 
-.Contact-details{
-  max-width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto 300px;
-}
+    &:hover{
+      .yellow-layout{
+        opacity: 1;
+        transition: all 0.5s;
+        background-color: rgba(255,255,0,0.5);
+      }
+    }
+  }
 
-.Mobile{
-  flex: 0 0 50%;
-}
 
-.Email{
-  flex: 0 0 50%;
-}
+  .yellow-layout{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255,255,0,0.0);
 
-.break{
-  height: 50px;
-  clear: both;
-  visibility: hidden;
-}
+  }
 
-.information{
-  line-height: 150%;
-}
+  .layout-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.break-lines{
-  clear: both;
-  visibility: hidden;
+  .information{
+    margin: auto 200px;
+    align-items: center;
+  }
+
+  .Contact-details{
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto 300px;
+  }
+
+  .Mobile{
+    flex: 0 0 50%;
+  }
+
+  .Email{
+    flex: 0 0 50%;
+  }
+
+  .break{
+    height: 50px;
+    clear: both;
+    visibility: hidden;
+  }
+
+  .information{
+    line-height: 150%;
+  }
+
+  .break-lines{
+    clear: both;
+    visibility: hidden;
+  }
 }

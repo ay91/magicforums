@@ -1,0 +1,15 @@
+<div class="topic-container text-center">
+
+  <h1>Topics</h1>
+
+  <div class="topic-parent">
+    <% @topics.each do |topic| %>
+      <div class="topic-child">
+      <h3><%= topic.title %></h3>
+      <h5><%= topic.description %></h5>
+      <%= link_to topic.title, topic_path(topic) %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
