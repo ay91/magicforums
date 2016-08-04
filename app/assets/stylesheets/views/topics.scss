@@ -1,20 +1,17 @@
 .topic-container{
 
+
   .topic-parent{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
-    padding-top: 20px;
-
+    padding: 20px;
   }
 
   .topic-child{
-    flex: 0 0 300px;
-    width: 300px;
-    position: relative;
-    border-style: solid;
-    border-color: black;
+    flex: 0 0 550px;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid green;
   }
-
-}
+}  

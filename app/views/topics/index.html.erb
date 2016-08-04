@@ -2,7 +2,7 @@
 
   <h1>Topics</h1>
 
-  <div class="topic-parent">
+  <div class="topic-parent text-center">
     <% @topics.each do |topic| %>
       <div class="topic-child">
       <h3><%= topic.title %></h3>
@@ -11,5 +11,8 @@
       </div>
     <% end %>
 
+  </div>
+  <div class="New-topic">
+    <%= link_to "Add New Topic", new_topic_path %>
   </div>
 </div>

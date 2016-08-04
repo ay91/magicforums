@@ -1,0 +1,16 @@
+<div class="Form text-center">
+  <div class="Form-show">
+    <h1><%=@topic.title%></h1>
+    <p><%=@topic.description%></p>
+  </div>
+
+  <div class="Form-Option">
+    <div class="Button">
+      <%=link_to "Edit", edit_topic_path(@topic)%>
+    </div>
+    <div class="Button">
+      <%=link_to "Delete", topic_path(@topic), method: :delete, data: {Confirm: "Delete?"}%>
+    </div>
+
+  </div>
+</div>
