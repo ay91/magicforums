@@ -1,8 +1,14 @@
-<h1>Posts</h1>
+<div class="post-container text-center">
 
-<% @posts.each do |post| %>
-<h3><%= post.title %></h3>
-<h5><%= post.body %></h5>
-<%= link_to post.title, post_path(post)%>
+    <h1>Posts</h1>
+  <div class="post-parent text-center">
+    <% @posts.each do |post| %>
+    <div class="post-child">
+      <h3><%= post.title %></h3>
+      <h5><%= post.body %></h5>
+      <%= link_to post.title, topic_posts_path(@topic)%>
+    </div>
+      <%end%>
 
-<%end%>
+  </div>
+</div>
