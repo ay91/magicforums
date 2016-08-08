@@ -1,8 +1,8 @@
 @import "font-awesome";
 .landing{
   .background {
-      background-image: asset-url("phone.jpg");
-      height: calc(80vh - 52px);
+      background-image: asset-url("classroom.jpg");
+      height: calc(100vh - 52px);
       width: 100%;
       background-position: 50% 50%;
       background-repeat: no-repeat;
@@ -13,7 +13,7 @@
     }
 
   .background-2 {
-      background-image: asset-url("digital.jpg");
+      background-color: #3b5998;
       height: 50vh;
       width: 100%;
       background-position: 50% 50%;
@@ -24,6 +24,35 @@
       justify-content: center;
       margin-bottom: 50px;
     }
+
+  .white{
+    color: #ffffff;
+  }
+
+  .first-title{font-size: 60px}
+  .second-title{font-size: 36px}
+
+  .content{
+    text-align: center;
+  }
+
+  .Button{
+    font-size: 30px;
+    margin: 20px;
+    padding: 5px 40px;
+    border-radius: 50px;
+    background-color: #3b5998;
+    color: #ffffff;
+    width: 200px;
+    display: inline-block;
+
+  }
+
+  .line{
+    width: 200px;
+    border-width: 3px;
+    margin: 20px auto;
+  }
 
   .features.container{
     margin: 50px 0;
