@@ -42,14 +42,14 @@ class PostsController < ApplicationController
     @topic = @post.topic
 
       if @post.destroy
-        redirect_to topic_post_path
+        redirect_to topic_posts_path
       end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :image)
   end
 
 end
