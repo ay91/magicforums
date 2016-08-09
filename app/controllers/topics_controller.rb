@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def index
     @topics = Topic.all.order(created_at: :desc)

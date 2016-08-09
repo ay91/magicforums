@@ -1,5 +1,3 @@
-.Form {
-
   .Form-Option{
     display: flex;
     flex-wrap: wrap;
@@ -8,7 +6,7 @@
     max-width: 300px;
   }
 
-  .Button{
+  .button{
     flex: 0 0 100px;
     background-color: #99b3ff;
     border-radius: 5px;
@@ -17,7 +15,16 @@
     font-size: 20px;
     font-color: white;
     font-weight: bold;
-    margin: 0 10px;
-
+    margin: 20px 10px;
   }
-}
+
+  .table{
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+
+  .Topic.table{
+      width: 80%;
+      margin: 20px auto;
+      height: 150px;
+  }

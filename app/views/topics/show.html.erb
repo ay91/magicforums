@@ -1,19 +1,11 @@
-<div class="Form text-center">
+<div class="Topic table text-center">
   <div class="Form-show">
     <h1><%=@topic.title%></h1>
     <p><%=@topic.description%></p>
   </div>
 
-  <div class="Form-Option">
-    <div class="Button">
-      <%=link_to "Edit", edit_topic_path(@topic)%>
-    </div>
-    <div class="Button">
-      <%=link_to "Delete", topic_path(@topic), method: :delete, data: {Confirm: "Delete?"}%>
-    </div>
-    <div class="Button">
-      <%=link_to "See Post", topic_posts_path(@topic)%>
-    </div>
-
-  </div>
+<div class="buttonbar">
+      <button class="see-post" type="button">  <%=link_to "See Post", topic_posts_path(@topic)%></button>
+      <button type="button"><%=link_to "Edit", edit_topic_path(@topic)%></button>
+      <button type="button"><%=link_to "Delete", topic_path(@topic), method: :delete, data: {Confirm: "Delete?"}%></button>
 </div>
