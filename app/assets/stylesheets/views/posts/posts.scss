@@ -1,18 +1,19 @@
 
-.post-container{
+.post-parent{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+}
 
-  .post-parent{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: center;
-  }
+.post-child{
+  flex: 0 0 550px;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid blue;
+  font-family: montserrat;
+}
 
-  .post-child{
-    flex: 0 0 550px;
-    padding: 10px;
-    margin: 5px;
-    border: 2px solid blue;
-    font-family: montserrat;
-  }
+.post-button{
+  text-align: right;
 }

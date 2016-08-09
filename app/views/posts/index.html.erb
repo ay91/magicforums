@@ -1,21 +1,21 @@
 <div class="post-container text-center">
 
     <h1>Posts</h1>
+      <%=link_to "Add New Post", new_topic_post_path(@topic)%>
+
   <div class="post-parent text-center">
     <% @posts.each do |post| %>
+
     <div class="post-child">
       <h3><%= post.title %></h3>
       <h5><%= post.body %></h5>
       <%= link_to post.title, topic_post_comments_path(@topic, post)%>
-    </div>
-      <div class="Post-Button">
-        <%=link_to "Edit", edit_topic_post_path(@topic, post)%>
-        <%=link_to "Delete", topic_post_path(@topic, post), method: :delete, data: {Confirm: "Delete?"}%>
+      <div class="post-button">
+        <button ><%=link_to "Edit", edit_topic_post_path(@topic, post)%></button>
+        <button ><%=link_to "Delete", topic_post_path(@topic, post), method: :delete, data: {Confirm: "Delete?"}%></button>
       </div>
-      <%end%>
-    <%=link_to "Add New Post", new_topic_post_path(@topic)%>
+    </div>
 
-
-
+    <%end%>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="comment-container text-center">
-    <%=link_to "Add new Comment", new_topic_post_comment_path(@topic, @post)%>
     <h1>Comments</h1>
+    <%=link_to "Add new Comment", new_topic_post_comment_path(@topic, @post)%>
   <div class="comment-parent text-center">
     <% @comments.each do |comment| %>
     <div class="comment-child">
