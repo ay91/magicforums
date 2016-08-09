@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_path
+      redirect_to root_path
     else
       redirect_to new_user_path
     end
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
 
     if @user.update(user_params)
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       redirect_to edit_user_path(@user)
     end
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password_digest, :image)
+    params.require(:user).permit(:email, :username, :password, :password_confirmation, :image)
   end
 
 end

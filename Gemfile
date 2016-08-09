@@ -29,10 +29,9 @@ group :production do
  gem 'rails_12factor'
 end
 
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
-gem 'pry'
 gem 'carrierwave'
 gem 'mini_magick'
 
@@ -40,6 +39,7 @@ gem 'mini_magick'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
