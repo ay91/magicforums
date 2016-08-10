@@ -3,7 +3,11 @@
     <div class="content">
       <h1 class="first-title white">Welcome to classroom discussions</h1>
       <hr class="line">
-      <h3 class="Button">Join Us</h3>
+      <%if current_user%>
+      <%=link_to "Welcome, #{current_user.username}",edit_user_path(current_user), class: "Button"%>
+      <%else%>
+      <%=link_to "Join Us", new_user_path, class: "Button"%>
+      <%end%>
     </div>
   </div>
 
