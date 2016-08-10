@@ -1,19 +1,36 @@
 
 .post-parent{
-  display: flex;
-  flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
 }
 
-.post-child{
-  flex: 0 0 550px;
+.post-child-container{
+  display:flex;
+  flex-wrap: wrap;
   padding: 10px;
   margin: 5px;
-  border: 2px solid blue;
+  border: 2px solid #3b5998;
   font-family: montserrat;
 }
 
 .post-button{
-  text-align: right;
+  text-align: bottom;
+}
+
+.post-image{
+  height: 150px;
+  width: 200px;
+
+}
+
+.column-big{
+  flex: 3 0;
+}
+
+.column-normal{
+  flex: 1 0;
+}
+
+.new-post{
+  margin-right: 20px;
 }

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
-  
+
   def index
     @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
     @post = Post.includes(:comments).find_by(id: params[:post_id])
@@ -17,7 +17,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find_by(id: params[:post_id])
     @topic = @post.topic
-    @comment = Comment.new(comment_params.merge(post_id: params[:post_id]))
+    @comment = current_user.comments.build(comment_params.merge(post_id: params[:post_id]))
     if @comment.save
       flash[:success] = "You've created a new comment"
       redirect_to topic_post_comments_path
@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post
     @topic = @post.topic
+    authorize @comment
   end
 
   def update
@@ -49,6 +50,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post
     @topic = @post.topic
+    authorize @comment
 
     if @comment.destroy
       redirect_to topic_post_comments_path

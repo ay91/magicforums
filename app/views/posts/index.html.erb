@@ -1,18 +1,29 @@
 <div class="post-container text-center">
 
     <h1>Posts</h1>
-      <%=link_to "Add New Post", new_topic_post_path(@topic)%>
+      <%=link_to "Add New Post", new_topic_post_path(@topic), class: 'new-post'%>
+      <%=link_to "Back to Topics", topics_path, class: 'back-to-topic' %>
 
   <div class="post-parent text-center">
     <% @posts.each do |post| %>
 
     <div class="post-child">
-      <h3><%= post.title %></h3>
-      <h5><%= post.body %></h5>
-      <%= link_to post.title, topic_post_comments_path(@topic, post)%>
-      <div class="post-button">
-        <button ><%=link_to "Edit", edit_topic_post_path(@topic, post)%></button>
-        <button ><%=link_to "Delete", topic_post_path(@topic, post), method: :delete, data: {Confirm: "Delete?"}%></button>
+      <div class="post-child-container ">
+        <div class="post-content column-normal">
+          <%=image_tag post.image, class: "post-image"%>
+        </div>
+        <div class="post-content column-big">
+          <h3><%= post.title %></h3>
+          <h5><%= post.body %></h5>
+          <%= link_to post.title, topic_post_comments_path(@topic, post)%>
+        </div>
+        <div class="post-content column-normal">
+          <%=link_to "Posted by #{post.user.username} at #{post.user.created_at}", root_path %>
+            <div class="post-button">
+              <button ><%=link_to "Edit", edit_topic_post_path(@topic, post)%></button>
+              <button ><%=link_to "Delete", topic_post_path(@topic, post), method: :delete, data: {Confirm: "Delete?"}%></button>
+            </div>
+        </div>
       </div>
     </div>
 

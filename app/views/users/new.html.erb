@@ -15,7 +15,9 @@
       <% end %>
     </div>
 
+    <div class="preview-image">
       <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
+    </div>
 
       <h4> <%= f.label :email_field, "Email" %> </h4>
       <%= f.text_field :email, required: true, id: "user_email_field", class: 'form-control' %>

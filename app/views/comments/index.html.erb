@@ -1,14 +1,17 @@
 <div class="comment-container text-center">
     <h1>Comments</h1>
     <%=link_to "Add new Comment", new_topic_post_comment_path(@topic, @post)%>
+    <%=link_to "Back to Posts", topic_posts_path %>
+
   <div class="comment-parent text-center">
     <% @comments.each do |comment| %>
     <div class="comment-child">
       <h5><%= comment.body %></h5>
       <%= link_to comment.body, edit_topic_post_comment_path(@topic, @post, comment)%>
-    </div>
-    <div class="comment-button">
-      <%=link_to "Delete", topic_post_comment_path(@topic, @post, comment), method: :delete, data: {Confirm: "Delete?"} %>
+      <div class="comment-button">
+        <button ><%=link_to "Edit", edit_topic_post_comment_path(@topic, @post, comment)%></button>
+        <button ><%=link_to "Delete", topic_post_comment_path(@topic, @post, comment), method: :delete, data: {Confirm: "Delete?"}%></button>
+      </div>
     </div>
       <%end%>
   </div>

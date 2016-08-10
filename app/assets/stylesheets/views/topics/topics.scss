@@ -1,19 +1,18 @@
-.topic-container{
+.topic-parent{
+  justify-content: center;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid #3b5998;
+  display: flex;
+  flex-wrap: wrap;
+}
 
+.topic-child{
+  padding: 10px;
+  margin: 5px;
+  flex: 0 0 300px;
+}
 
-  .topic-parent{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px;
-
-  }
-
-  .topic-child{
-    flex: 0 0 550px;
-    padding: 10px;
-    margin: 5px;
-    border: 2px solid green;
-    max-width: 1110px;
-  }
+.new-topic{
+padding: 20px;
 }

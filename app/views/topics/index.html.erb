@@ -2,17 +2,24 @@
 
   <h1>Topics</h1>
 
-  <div class="topic-parent text-center">
-    <% @topics.each do |topic| %>
-      <div class="topic-child">
-      <h3><%= topic.title %></h3>
-      <h5><%= topic.description %></h5>
-      <%= link_to topic.title, topic_path(topic) %>
-      </div>
-    <% end %>
-
-  </div>
-  <div class="New-topic">
+  <div class="new-topic">
     <%= link_to "Add New Topic", new_topic_path %>
+
+    <% @topics.each do |topic| %>
+
+          <div class="topic-parent">
+              <div class="topic-child">
+                <h3><%= topic.title %></h3>
+                <h5><%= topic.description %></h5>
+                <%= link_to topic.title, topic_path(topic) %>
+              </div>
+
+              <div class="topic-child">
+                <%=link_to "Posted by #{current_user.username} at #{current_user.created_at}", root_path %>
+              </div>
+
+          </div>
+
+    <% end %>
   </div>
 </div>
