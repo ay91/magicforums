@@ -1,5 +1,5 @@
 .topic-parent{
-  justify-content: center;
+  // justify-content: center;
   padding: 10px;
   margin: 5px;
   border: 2px solid #3b5998;
@@ -8,11 +8,18 @@
 }
 
 .topic-child{
-  padding: 10px;
-  margin: 5px;
-  flex: 0 0 300px;
+
+
 }
 
 .new-topic{
 padding: 20px;
+}
+
+.column-big{
+  flex: 3 0;
+}
+
+.column-small{
+  flex: 1 0;
 }

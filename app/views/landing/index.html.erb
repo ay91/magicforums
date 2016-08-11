@@ -1,102 +1,103 @@
 <div class="landing">
-  <div class="background">
-    <div class="content">
-      <h1 class="first-title white">Welcome to classroom discussions</h1>
-      <hr class="line">
-      <%if current_user%>
-      <%=link_to "Welcome, #{current_user.username}",edit_user_path(current_user), class: "Button"%>
-      <%else%>
-      <%=link_to "Join Us", new_user_path, class: "Button"%>
-      <%end%>
-    </div>
-  </div>
-
-  <div class="background-2">
-    <div class="content">
-      <h1 class="second-title white">Classroom Discussions</h1>
-      <hr class="line">
-
-    </div>
-  </div>
-
-  <section class="features-container">
-    <h1 class="features-title text-center">
-      Features
-        <hr class="short-underline">
-    </h1>
-
-
-
-
-  <div class="features text-center">
-
-        <div class="feature">
-          <%= fa_icon 'globe 4x', class: 'icon-settings' %>
-          <h2>Building global communities</h2>
+    <div class="background">
+        <div class="content">
+            <h1 class="first-title white">Welcome to classroom discussions</h1>
+            <hr class="line">
+            <%if current_user%>
+            <%=link_to "Welcome, #{current_user.username}",edit_user_path(current_user), class: "Button"%>
+            <%else%>
+            <%=link_to "Join Us", new_user_path, class: "Button"%>
+            <%end%>
         </div>
-        <div class="feature">
-            <%= fa_icon 'users 4x', class: 'icon-settings' %>
-          <h2>Reaching out to people</h2>
-        </div>
-        <div class="feature">
-            <%= fa_icon 'comments-o 4x', class: 'icon-settings' %>
-          <h2>Have meaningful discussion</h2>
-        </div>
-        <div class="feature">
-            <%= fa_icon 'mobile 4x', class: 'icon-settings' %>
-          <h2>Talk Mobile!</h2>
-        </div>
-  </div>
-
-  </section>
-
-  <section class="pictures-container">
-    <div class="pictures">
-      <div class="photo">
-        <div class="yellow-layout">
-          <h2 class="text-center layout-title">Science</h2>
-        </div>
-        <%= image_tag "science.jpeg", class: 'pic-setting' %>
-      </div>
-      <div class="photo">
-        <div class="yellow-layout">
-          <h2 class="text-center layout-title">Programming</h2>
-        </div>
-        <%= image_tag "programming.jpeg", class: 'pic-setting' %>
-      </div>
-      <div class="photo">
-        <div class="yellow-layout">
-          <h2 class="text-center layout-title">Music</h2>
-        </div>
-        <%= image_tag "music.jpeg", class: 'pic-setting' %>
-      </div>
-      <div class="photo">
-        <div class="yellow-layout">
-          <h2 class="text-center layout-title">Language</h2>
-        </div>
-        <%= image_tag "language.jpeg", class: 'pic-setting' %>
-      </div>
-
     </div>
 
-  </section>
+    <div class="background-2">
+        <div class="content">
+            <h1 class="second-title white">Classroom Discussions</h1>
+            <hr class="line">
 
-  <hr class="break">
-  <div class="Contact-info">
-    <h1 class="text-center">Need an expert advice?
-        <hr class="short-underline">
-    </h1>
-    <hr class="break-lines">
-    <div class="Contact-details text-center">
-      <div class="Mobile">
-        <%= fa_icon 'phone 3x', class: 'icon-settings'%>
-        <h5><b>+6012-3456789</b></h5>
-      </div>
-      <div class="Email">
-        <%= fa_icon 'envelope-o 3x', class: 'icon-settings'%>
-        <h5><b>yourenquiries@gmail.com</b></h5>
-      </div>
+        </div>
     </div>
-  </div>
+
+    <section class="features-container">
+        <h1 class="features-title text-center">
+            Features
+            <hr class="short-underline">
+        </h1>
+
+        <div class="features text-center">
+
+            <div class="feature">
+                <%= fa_icon 'globe 4x', class: 'icon-settings' %>
+                <h2>Building global communities</h2>
+            </div>
+            <div class="feature">
+                <%= fa_icon 'users 4x', class: 'icon-settings' %>
+                <h2>Reaching out to people</h2>
+            </div>
+            <div class="feature">
+                <%= fa_icon 'comments-o 4x', class: 'icon-settings' %>
+                <h2>Have meaningful discussion</h2>
+            </div>
+            <div class="feature">
+                <%= fa_icon 'mobile 4x', class: 'icon-settings' %>
+                <h2>Talk Mobile!</h2>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="pictures-container">
+        <div class="pictures">
+            <div class="photo">
+                <div class="yellow-layout">
+                    <h2 class="text-center layout-title">Science</h2>
+                </div>
+                <%= image_tag "science.jpeg", class: 'pic-setting' %>
+            </div>
+            <div class="photo">
+                <div class="yellow-layout">
+                    <h2 class="text-center layout-title">Programming</h2>
+                </div>
+                <%= image_tag "programming.jpeg", class: 'pic-setting' %>
+            </div>
+            <div class="photo">
+                <div class="yellow-layout">
+                    <h2 class="text-center layout-title">Music</h2>
+                </div>
+                <%= image_tag "music.jpeg", class: 'pic-setting' %>
+            </div>
+            <div class="photo">
+                <div class="yellow-layout">
+                    <h2 class="text-center layout-title">Language</h2>
+                </div>
+                <%= image_tag "language.jpeg", class: 'pic-setting' %>
+            </div>
+
+        </div>
+
+    </section>
+
+    <hr class="break">
+    <div class="Contact-info">
+        <h1 class="text-center">Need an expert advice?
+            <hr class="short-underline">
+        </h1>
+        <hr class="break-lines">
+        <div class="Contact-details text-center">
+            <div class="Mobile">
+                <%= fa_icon 'phone 3x', class: 'icon-settings'%>
+                <h5>
+                    <b>+6012-3456789</b>
+                </h5>
+            </div>
+            <div class="Email">
+                <%= fa_icon 'envelope-o 3x', class: 'icon-settings'%>
+                <h5>
+                    <b>yourenquiries@gmail.com</b>
+                </h5>
+            </div>
+        </div>
+    </div>
 
 </div>

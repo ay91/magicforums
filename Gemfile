@@ -34,6 +34,9 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'figaro'
+gem 'responders'
+gem 'remotipart', github: 'sr3d/remotipart'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
