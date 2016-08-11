@@ -8,13 +8,17 @@
     border-radius: 0;
   }
 
-  .white{color: #ffffff};
+  .white{
+    color: #ffffff;
+    font-size: 18px;
+  }
+
   .shadowed{text-shadow: 1px 1px black};
 
   .navbar-brand{
     float: left;
     padding: 15px 15px;
-    font-size: 18px;
+    font-size: 23px;
     line-height: 20px;
     height: 50px;
   }

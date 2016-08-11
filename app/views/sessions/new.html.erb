@@ -4,12 +4,12 @@
   </h1>
 
   <div class="form-group">
-    <%= label_tag "Email" %>
+    <h4><%= label_tag "Email", nil, class: 'form-text' %></h4>
     <%= text_field_tag :email, params[:email], :placeholder => "Enter Email Address", required: true, id: "user_email_field", class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= label_tag "Password" %>
+    <h4><%= label_tag "Password",nil, class: "form-text" %></h4>
     <%= password_field_tag :password, nil, id: "user_password_field", :placeholder => "Enter password", class:
     'form-control' %>
   </div>
@@ -18,8 +18,8 @@
     <%= submit_tag "Login", class: "btn btn-success btn-lg" %>
   </div>
 
-  <div class="form-group">
-    <%= link_to "First time login?", new_user_path%>
+  <div class="form-group text-center">
+    <%= link_to "First time login?", new_user_path %>
     <%= link_to "Forget Password?", new_password_reset_path%>
   </div>
 <% end %>

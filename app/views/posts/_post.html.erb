@@ -4,9 +4,8 @@
       <%=image_tag post.image, class: "post-image"%>
     </div>
     <div class="post-content column-big">
-      <h3><%= post.title %></h3>
+      <h3><%= link_to post.title, topic_post_comments_path(@topic, post)%></h3>
       <h5><%= post.body %></h5>
-      <%= link_to post.title, topic_post_comments_path(@topic, post)%>
     </div>
     <div class="post-content column-normal">
       <%=link_to "Posted by #{post.user.username} at #{post.created_at}", root_path %>

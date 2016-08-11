@@ -1,8 +1,8 @@
 <div class="post-container text-center">
 
     <h1>Posts</h1>
-    <%=link_to "Add New Post", new_topic_post_path(@topic), class: 'new-post'%>
-    <%=link_to "Back to Topics", topics_path, class: 'back-to-topic' %>
+    <button><%=link_to "Add New Post", new_topic_post_path(@topic), class: 'new-post'%></button>
+    <button>  <%=link_to "Back to Topics", topics_path, class: 'back-to-topic' %></button>
 
     <div class="post-parent text-center">
         <% @posts.each do |post| %>

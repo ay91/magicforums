@@ -1,6 +1,5 @@
 <div class="comment-child">
-    <h5><%= comment.body %></h5>
-    <%= link_to comment.body, edit_topic_post_comment_path(@topic, @post, comment)%>
+    <h4><%= link_to comment.body, edit_topic_post_comment_path(@topic, @post, comment)%></h4>
     <div class="comment-button">
         <button ><%=link_to "Edit", edit_topic_post_comment_path(@topic, @post, comment)%></button>
         <button ><%=link_to "Delete", topic_post_comment_path(@topic, @post, comment), method: :delete, data: {Confirm: "Delete?"}%></button>

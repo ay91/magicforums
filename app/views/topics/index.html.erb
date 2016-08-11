@@ -9,9 +9,8 @@
 
           <div class="topic-parent">
               <div class="topic-child column-big">
-                <h3><%= topic.title %></h3>
-                <h5><%= topic.description %></h5>
-                <%= link_to topic.title, topic_path(topic) %>
+                <h3> <%= link_to topic.title, topic_path(topic) %></h3>
+                <h5><%= topic.description %></h5>                
               </div>
 
               <div class="topic-child column-small">

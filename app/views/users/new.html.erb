@@ -1,41 +1,43 @@
 <div class="form-container">
-
     <%= form_for(@user, url: users_path, html: { id: "user-create-form" }) do |f| %>
     <h1 class="text-center">
-      Register As New User
+        Register As New User
     </h1>
 
     <div class="form-group">
+      <h4><%=f.label :image, "Profile Picture", class: "form-text"%></h4>
+        <div id="preview-image">
+            <% if @user.image? %>
+            <%= image_tag @user.image, class: "img-settings img-responsive center-block" %>
+            <% end %>
+        </div>
 
+        <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
 
-    <h4> Profile Picture </h4>
-    <div id="preview-image">
-      <% if @user.image? %>
-        <%= image_tag @user.image, class: "img-settings img-responsive center-block" %>
-      <% end %>
-    </div>
+        <h4>
+            <%= f.label :email_field, "Email", class: "form-text" %>
+        </h4>
+        <%= f.text_field :email, required: true, id: "user_email_field", class: 'form-control' %>
 
-    <div class="preview-image">
-      <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
-    </div>
+        <h4>
+            <%= f.label :password, class: "form-text" %>
+        </h4>
+        <%= f.password_field :password, required: true, id: "user_password_field", class: 'form-control' %>
 
-      <h4> <%= f.label :email_field, "Email" %> </h4>
-      <%= f.text_field :email, required: true, id: "user_email_field", class: 'form-control' %>
+        <h4>
+            <%= f.label :password_confirmation, class: "form-text" %>
+        </h4>
+        <%= f.password_field :password_confirmation, required: true, id: "user_password_field", class: 'form-control' %>
 
-
-      <h4> <%= f.label :password %> </h4>
-      <%= f.password_field :password, required: true, id: "user_password_field", class: 'form-control' %>
-
-      <h4> <%= f.label :password_confirmation %> </h4>
-      <%= f.password_field :password_confirmation, required: true, id: "user_password_field", class: 'form-control' %>
-
-      <h4> <%= f.label :username_field, "Username" %> </h4>
-      <%= f.text_field :username, required: true, id: "user_username_field", class: 'form-control' %>
+        <h4>
+            <%= f.label :username_field, "Username", class: "form-text" %>
+        </h4>
+        <%= f.text_field :username, required: true, id: "user_username_field", class: 'form-control' %>
     </div>
 
     <div class="form-group text-center">
-      <%= f.submit "Create Profile", class: "btn btn-success btn-lg" %>
+        <%= f.submit "Create Profile", class: "btn btn-success btn-lg" %>
     </div>
 
     <% end %>
-  </div>
+</div>
