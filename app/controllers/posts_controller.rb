@@ -5,8 +5,9 @@ class PostsController < ApplicationController
 
   def index
     @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
-    @posts = @topic.posts.order(created_at: :desc)
+    @posts = @topic.posts.order(created_at: :desc).page params[:page]
     @post = Post.new
+
   end
 
   def create

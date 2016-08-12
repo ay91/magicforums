@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   def index
     @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
     @post = Post.includes(:comments).find_by(id: params[:post_id])
-    @comments = @post.comments
+    @comments = @post.comments.page params[:page]
     @comment = Comment.new
 
   end
@@ -36,9 +36,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
 
     if @comment.update(comment_params)
-      redirect_to topic_post_comments_path(@topic, @post)
+      flash.now[:success] = "You've created a new comment"
     else
-      render :edit
+      flash.now[:danger] = @comment.errors.full_messages
     end
   end
 

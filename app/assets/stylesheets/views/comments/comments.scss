@@ -6,13 +6,13 @@
         justify-content: center;
     }
     .comment-child {
-        flex: 0 0 550px;
+        flex: 0 0 300px;
         padding: 10px;
         margin: 5px;
         border: 2px solid blue;
         font-family: montserrat;
     }
-    .comment-button {
+    #comment-form-holder {
         text-align: right;
     }
 }

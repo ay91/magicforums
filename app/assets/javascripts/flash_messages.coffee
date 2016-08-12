@@ -1,14 +1,14 @@
 flashMessagesFunctions = () ->
 
-clearFlashMessages = () ->
+  clearFlashMessages = () ->
     setTimeout( ()->
-        $('.flash-messages').addClass('fadeOut')
+      $('.flash-messages').addClass('fadeOut')
     , 3000)
     setTimeout( ()->
-        $('#flash-messages-container').html("")
+      $('#flash-messages-container').html("")
     , 8000)
 
-if $('.flash-messages').length > 0
+  if $('.flash-messages').length > 0
     clearFlashMessages()
 
 $(document).on 'turbolinks:load', flashMessagesFunctions

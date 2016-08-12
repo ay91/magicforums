@@ -10,6 +10,8 @@
         <%end%>
     </div>
 
+    <%=paginate @posts%>
+
     <div class="post-form-container">
       <%= render partial: "form", locals: { post: @post, topic: @topic } %>
     </div>

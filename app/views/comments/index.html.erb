@@ -4,13 +4,13 @@
 
     <div class="comment-parent text-center">
         <% @comments.each do |comment| %>
-        <%= render partial: "comment", locals: { comment: comment, post: @post } %>
-
+        <%= render partial: "comment", locals: { comment: comment, post: @post, topic: @topic } %>
         <%end%>
     </div>
+
+    <%=paginate @comments%>
 
     <div class="form-container">
         <%= render partial: "form", locals: { comment: @comment, post: @post } %>
     </div>
-  
 </div>
