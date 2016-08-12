@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
+  paginates_per 1
   belongs_to :user
   has_many :posts
 

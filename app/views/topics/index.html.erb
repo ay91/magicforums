@@ -5,12 +5,13 @@
   <div class="new-topic">
     <%= link_to "Add New Topic", new_topic_path %>
 
+
     <% @topics.each do |topic| %>
 
           <div class="topic-parent">
               <div class="topic-child column-big">
                 <h3> <%= link_to topic.title, topic_path(topic) %></h3>
-                <h5><%= topic.description %></h5>                
+                <h5><%= topic.description %></h5>
               </div>
 
               <div class="topic-child column-small">
@@ -21,4 +22,6 @@
 
     <% end %>
   </div>
+
+  <%= paginate @topics %>
 </div>

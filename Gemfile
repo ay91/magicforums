@@ -37,6 +37,7 @@ gem 'mini_magick'
 gem 'figaro'
 gem 'responders'
 gem 'remotipart', github: 'sr3d/remotipart'
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
