@@ -1,0 +1,5 @@
+$('#post-form-holder-<%=@post.id%>').html("<%=j render partial: 'edit', locals: {post: @post, topic: @topic} %>")
+
+$('.cancel-button').on('click',function(){
+  $('.post-form-update').replaceWith("<%=j render partial: 'post', locals: {post: @post, topic: @topic} %>")
+})

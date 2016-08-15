@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
   def index
     @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
     @post = Post.includes(:comments).find_by(id: params[:post_id])
-    @comments = @post.comments.page params[:page]
+    @comments = @post.comments.order(created_at: :desc).page params[:page]
     @comment = Comment.new
 
   end
@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     @new_comment = Comment.new
 
     if @comment.save
+      CommentBroadcastJob.set(wait: 0.1.seconds).perform_later("create", @comment)
       flash.now[:success] = "You've created a new comment"
     else
       flash.now[:danger] = @comment.errors.full_messages
@@ -31,12 +32,12 @@ class CommentsController < ApplicationController
   end
 
   def update
-    @topic = Topic.find_by(id: params[:topic_id])
-    @post = Post.find_by(id: params[:post_id])
     @comment = Comment.find_by(id: params[:id])
+    @post = @comment.post
+    @topic = @post.topic
 
     if @comment.update(comment_params)
-      flash.now[:success] = "You've created a new comment"
+      flash.now[:success] = "You've updated your comment"
     else
       flash.now[:danger] = @comment.errors.full_messages
     end
@@ -46,11 +47,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post
     @topic = @post.topic
-    authorize @comment
 
     if @comment.destroy
-      redirect_to topic_post_comments_path
+      flash.now[:success] = "Comment Deleted!"
     end
+    authorize @comment
+
   end
 
   private

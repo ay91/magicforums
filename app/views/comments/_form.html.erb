@@ -1,16 +1,18 @@
-<%= form_for(comment, url: topic_post_comments_path(post.topic, post), remote: true, html: { id: "comment-create-form" }) do |f| %>
-<h1 class="text-center">
+<div class="comment-create-form">  
+  <%= form_for(comment, url: topic_post_comments_path(post.topic, post), remote: true, html: { id: "comment-create-form" }) do |f| %>
+  <h1 class="text-center">
     Create Comment
-</h1>
+  </h1>
 
-<div class="form-group">
+  <div class="form-group">
     <h4>
-        <%= f.label :text_field, "Body" %>
+      <%= f.label :text_field, "Body" %>
     </h4>
     <%= f.text_field :body, id: "comment_body_field", class: 'form-control' %>
-</div>
+  </div>
 
-<div class="form-group text-center">
+  <div class="form-group text-center">
     <%= f.submit "Create Comment", class: "btn btn-success btn-lg" %>
+  </div>
+  <% end %>
 </div>
-<% end %>

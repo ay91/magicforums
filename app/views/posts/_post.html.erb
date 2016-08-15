@@ -1,4 +1,4 @@
-<div class="post-child">
+<div class="post-child" id="post-form-holder-<%=post.id%>">
   <div class="post-child-container ">
     <div class="post-content column-normal">
       <%=image_tag post.image, class: "post-image"%>
@@ -10,8 +10,8 @@
     <div class="post-content column-normal">
       <%=link_to "Posted by #{post.user.username} at #{post.created_at}", root_path %>
         <div class="post-button">
-          <button ><%=link_to "Edit", edit_topic_post_path(@topic, post)%></button>
-          <button ><%=link_to "Delete", topic_post_path(@topic, post), method: :delete, data: {Confirm: "Delete?"}%></button>
+          <button ><%=link_to "Edit", edit_topic_post_path(@topic, post), remote: true %></button>
+          <button ><%=link_to "Delete", topic_post_path(@topic, post),remote: true, method: :delete, data: {Confirm: "Delete?"}%></button>
         </div>
     </div>
   </div>

@@ -3,16 +3,37 @@
         display: flex;
         flex-wrap: wrap;
         padding: 20px;
-        justify-content: center;
+        margin: 0 auto;
+        max-width:1300px;
     }
     .comment-child {
-        flex: 0 0 300px;
+        flex: 0 0 600px;
         padding: 10px;
         margin: 5px;
-        border: 2px solid blue;
-        font-family: montserrat;
+        border: 2px solid #3b5998;
+        min-width: 600px;
+        max-width: 600px;
+
     }
     #comment-form-holder {
-        text-align: right;
+        text-align: left;
     }
+
+    .comment-button{
+      margin-top: 20px;
+    }
+
+    .comment-create-form{
+      border: 2px solid #3b5998;
+      border-radius: 2px;
+      width: 800px;
+      height: 300px;
+      margin: 20px auto;
+      background-color: #e6f5ff;
+    }
+
+    .hidden {
+      display: none;
+    }
+
 }

@@ -1,10 +1,10 @@
-<div class="comment-container text-center">
+<div class="comment-container text-center", data-id="<%= @post.id %>">
     <h1>Comments</h1>
     <%=link_to "Back to Posts", topic_posts_path %>
 
-    <div class="comment-parent text-center">
+    <div class="comment-parent" id="comments">
         <% @comments.each do |comment| %>
-        <%= render partial: "comment", locals: { comment: comment, post: @post, topic: @topic } %>
+          <%= render partial: "comment", locals: { comment: comment, post: @post, topic: @topic } %>
         <%end%>
     </div>
 

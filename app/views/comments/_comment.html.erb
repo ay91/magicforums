@@ -1,7 +1,13 @@
-<div id="comment-form-holder">
-<div class="comment-child">
-      <%=comment.body%>
-        <button ><%=link_to "Edit", edit_topic_post_comment_path(topic, post, comment), remote: true %></button>
-        <button ><%=link_to "Delete", topic_post_comment_path(topic, post, comment), method: :delete, data: {Confirm: "Delete?"}%></button>
-</div>
+<div id="comment-form-holder-<%=comment.id%>" class="comment" data-id="<%= comment.id %>">
+    <div class="comment-child">
+        <%=comment.body%>
+        <div class="comment-button">
+            <% if comment.user == current_user %>
+              <button ><%=link_to "Edit", edit_topic_post_comment_path(post.topic, post, comment), remote: true %></button>
+             <% end %>
+            <% if comment.user == current_user || current_user&.admin? || current_user&.moderator? %>
+              <button ><%=link_to "Delete", topic_post_comment_path(post.topic, post, comment), remote: true, method: :delete, data: {Confirm: "Delete?"}%></button>
+             <% end %>
+        </div>
+    </div>
 </div>
