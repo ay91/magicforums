@@ -1,4 +1,5 @@
-<%= form_for(@topic, url: topic_path(@topic), html: { id: "topic-update-form" }) do |f| %>
+<div class="topic-form-update">  
+  <%= form_for(topic, url: topic_path(topic),remote: true, html: { id: "topic-update-form" }) do |f| %>
   <h1 class="text-center">
     Update Topic
   </h1>
@@ -14,6 +15,10 @@
   </div>
 
   <div class="form-group text-center">
+    <div class="cancel-button btn btn-success btn-lg">
+      Cancel
+    </div>
     <%= f.submit "Update Topic", class: "btn btn-success btn-lg" %>
   </div>
-<% end %>
+  <% end %>
+</div>

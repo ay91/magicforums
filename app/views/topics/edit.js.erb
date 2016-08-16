@@ -1,0 +1,5 @@
+$(".topic-form-holder[data-id=<%=@topic.id%>]").html("<%=j render partial: 'edit', locals: {topic: @topic} %>")
+
+$('.cancel-button').on('click',function(){
+  $(".topic-form-holder[data-id=<%=@topic.id%>]").replaceWith("<%=j render partial: 'topic', locals: {topic: @topic} %>")
+})

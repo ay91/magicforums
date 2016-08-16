@@ -1,25 +1,43 @@
-.topic-parent{
-  // justify-content: center;
-  padding: 10px;
-  margin: 5px;
-  border: 2px solid #3b5998;
+.topic-title{
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.topic-description{
+  font-size: 15px;
+}
+
+.topic-container{
   display: flex;
   flex-wrap: wrap;
 }
 
-.topic-child{
-
-
+.topic-form-holder{
+  position: relative;
+  text-align: left;
+  font-family: Montserrat;
+  border: 2px solid #3b5998;
+  width: 800px;
+  margin: 20px auto;
+  min-height: 200px;
+  padding: 10px 10px;
 }
 
-.new-topic{
-padding: 20px;
+.topic-button{
+  position: absolute;
+  bottom: 10px;
+  left:10px;
 }
 
-.column-big{
-  flex: 3 0;
+.topic-detail{
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 15px;
 }
 
-.column-small{
-  flex: 1 0;
+.paginate{
+  font-size:20px;
+  font-weight: bold;
 }

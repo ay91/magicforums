@@ -4,8 +4,8 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
   belongs_to :topic
-  paginates_per 2
+  paginates_per 3
 
-  validates :title, length: {minimum: 5}, presence: true
-  validates :body, length: {minimum: 20}, presence: true
+  validates :title, length: {minimum: 3}, presence: true
+  validates :body, length: {minimum: 10}, presence: true
 end

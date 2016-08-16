@@ -1,0 +1,15 @@
+<div class="topic-form-holder" data-id="<%=topic.id%>">
+    <div class="topic-title">
+        <%= link_to topic.title, topic_posts_path(topic) %>
+    </div>
+    <div class="topic-description">
+        <%= topic.description%>
+    </div>
+    <div class="buttonbar">
+        <div class="topic-button">
+            <%=link_to "Edit", edit_topic_path(topic), class: 'btn btn-info', remote: true%>
+            <%=link_to "Delete", topic_path(topic),remote: true, method: :delete, data: {Confirm: "Delete?"}, class: 'btn btn-danger'%>
+        </div>
+        <%=link_to "Posted by #{topic.user.username} at #{topic.created_at}", root_path, class: 'topic-detail' %>
+    </div>
+</div>

@@ -1,27 +1,14 @@
+<div class="topic text-center">
+    <h1>Topics</h1>
+    <%= link_to "Add New Topic", new_topic_path, class: 'btn btn-primary' %>
+</div>
+
 <div class="topic-container text-center">
-
-  <h1>Topics</h1>
-
-  <div class="new-topic">
-    <%= link_to "Add New Topic", new_topic_path %>
-
-
     <% @topics.each do |topic| %>
+    <%= render partial: "topic", locals: {topic: topic } %>
+    <%end%>
+</div>
 
-          <div class="topic-parent">
-              <div class="topic-child column-big">
-                <h3> <%= link_to topic.title, topic_path(topic) %></h3>
-                <h5><%= topic.description %></h5>
-              </div>
-
-              <div class="topic-child column-small">
-                <%=link_to "Posted by #{topic.user.username} at #{topic.created_at}", root_path %>
-              </div>
-
-          </div>
-
-    <% end %>
-  </div>
-
-  <%= paginate @topics %>
+<div class="paginate text-center">
+    <%= paginate @topics%>
 </div>

@@ -1,12 +1,10 @@
 class TopicsController < ApplicationController
+  respond_to :js
   before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def index
     @topics = Topic.all.page params[:page]
-  end
 
-  def show
-    @topic = Topic.find_by(id: params[:id])
   end
 
   def new
@@ -35,9 +33,7 @@ class TopicsController < ApplicationController
     @topic = Topic.find_by(id: params[:id])
 
       if @topic.update(topic_params)
-        redirect_to topics_path
-      else
-        redirect_to edit_topic_path(@topic)
+        flash.now[:success] = "Topic Updated!"
       end
   end
 
