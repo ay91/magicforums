@@ -3,11 +3,17 @@
         <%=comment.body%>
         <div class="comment-button">
             <% if comment.user == current_user %>
-              <button ><%=link_to "Edit", edit_topic_post_comment_path(post.topic, post, comment), remote: true %></button>
-             <% end %>
+              <%=link_to "Edit", edit_topic_post_comment_path(post.topic, post, comment), remote: true, class: 'btn btn-info' %>
+           <%end%>
             <% if comment.user == current_user || current_user&.admin? || current_user&.moderator? %>
-              <button ><%=link_to "Delete", topic_post_comment_path(post.topic, post, comment), remote: true, method: :delete, data: {Confirm: "Delete?"}%></button>
-             <% end %>
+            <%=link_to "Delete", topic_post_comment_path(post.topic, post, comment), remote: true, method: :delete, data: {Confirm: "Delete?"}, class:'btn btn-danger'%>
+            <%end%>
+            <%= link_to "Upvote", upvote_path(comment_id: comment.id), method: :post, remote: true%>
+            <%= link_to "Downvote", downvote_path(comment_id: comment.id), method: :post, remote: true%>
+            <div class="comment-total-votes">
+              <%=comment.total_votes%>
+            </div>
         </div>
+
     </div>
 </div>

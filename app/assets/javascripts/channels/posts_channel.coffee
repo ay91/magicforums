@@ -1,7 +1,7 @@
 postsChannelFunctions = () ->
 
   checkMe = (comment_id) ->
-    if $('meta[name=wizardwonka]').length < 1
+    if $('meta[name=admin]').length < 1
       $(".comment[data-id=#{comment_id}] .control-panel").remove()
   #end
 
@@ -21,6 +21,7 @@ postsChannelFunctions = () ->
     console.log(data)
     if $('.comment-container').data().id == data.post.id
       $(".comment[data-id=#{data.comment.id}]").remove()
+      checkMe(data.comment.id)
 
   if $('.comment-container').length > 0
     App.posts_channel = App.cable.subscriptions.create {

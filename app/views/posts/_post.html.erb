@@ -4,14 +4,18 @@
       <%=image_tag post.image, class: "post-image"%>
     </div>
     <div class="post-content column-big">
-      <h3><%= link_to post.title, topic_post_comments_path(@topic, post)%></h3>
-      <h5><%= post.body %></h5>
+      <div class="post-title text-center">
+        <%= link_to post.title, topic_post_comments_path(@topic, post)%>
+      </div>
+      <div class="post-body">
+        <%= post.body %>
+      </div>
     </div>
     <div class="post-content column-normal">
       <%=link_to "Posted by #{post.user.username} at #{post.created_at}", root_path %>
         <div class="post-button">
-          <button ><%=link_to "Edit", edit_topic_post_path(@topic, post), remote: true %></button>
-          <button ><%=link_to "Delete", topic_post_path(@topic, post),remote: true, method: :delete, data: {Confirm: "Delete?"}%></button>
+          <%=link_to "Edit", edit_topic_post_path(@topic, post), remote: true, class: 'btn btn-info' %>
+          <%=link_to "Delete", topic_post_path(@topic, post),remote: true, method: :delete, data: {Confirm: "Delete?"}, class: 'btn btn-danger'%>
         </div>
     </div>
   </div>

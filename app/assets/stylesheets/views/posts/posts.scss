@@ -11,16 +11,19 @@
   margin: 5px;
   border: 2px solid #3b5998;
   font-family: montserrat;
+  position: relative;
 }
 
 .post-button{
   text-align: bottom;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
 .post-image{
   height: 150px;
   width: 200px;
-
 }
 
 .column-big{
@@ -62,4 +65,15 @@
 
 .form-text{
     margin-right: 900px;
+}
+
+.post-title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.post-body{
+  font-size: 15px;
+  margin-top: 10px;
+
 }

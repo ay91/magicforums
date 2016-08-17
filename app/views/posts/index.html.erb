@@ -1,8 +1,7 @@
 <div class="post-container text-center">
 
     <h1>Posts</h1>
-    <button>
-        <%=link_to "Back to Topics", topics_path, class: 'back-to-topic' %></button>
+        <%=link_to "Back to Topics", topics_path, class: 'btn btn-primary' %>
 
     <div class="post-parent text-center">
         <% @posts.each do |post| %>

@@ -42,9 +42,8 @@ class TopicsController < ApplicationController
     authorize @topic
 
       if @topic.destroy
-        redirect_to topics_path
-      else
-        redirect_to topic_path(@topic)
+        flash.now[:success] = "Topic Deleted!"
+
       end
   end
 
