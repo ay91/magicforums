@@ -1,19 +1,24 @@
 <div id="comment-form-holder-<%=comment.id%>" class="comment" data-id="<%= comment.id %>">
     <div class="comment-child">
         <%=comment.body%>
-        <div class="comment-button">
+        <div class="comment-button-container">
+          <div class="comment-button align">
             <% if comment.user == current_user %>
-              <%=link_to "Edit", edit_topic_post_comment_path(post.topic, post, comment), remote: true, class: 'btn btn-info' %>
-           <%end%>
-            <% if comment.user == current_user || current_user&.admin? || current_user&.moderator? %>
-            <%=link_to "Delete", topic_post_comment_path(post.topic, post, comment), remote: true, method: :delete, data: {Confirm: "Delete?"}, class:'btn btn-danger'%>
+            <%=link_to "Edit", edit_topic_post_comment_path(topic, post, comment), remote: true, class: 'btn btn-info' %>
             <%end%>
+            <% if comment.user == current_user || current_user&.admin? || current_user&.moderator? %>
+            <%=link_to "Delete", topic_post_comment_path(topic, post, comment), remote: true, method: :delete, data: {Confirm: "Delete?"}, class:'btn btn-danger'%>
+            <%end%>
+          </div>
+        </div>
+        <div class="comment-vote-container align">
+          <div class="comment-vote inline">
             <%= link_to "Upvote", upvote_path(comment_id: comment.id), method: :post, remote: true%>
             <%= link_to "Downvote", downvote_path(comment_id: comment.id), method: :post, remote: true%>
-            <div class="comment-total-votes">
+          </div>
+            <div class="comment-total-votes inline">
               <%=comment.total_votes%>
             </div>
         </div>
-
     </div>
 </div>

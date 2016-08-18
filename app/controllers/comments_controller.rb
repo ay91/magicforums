@@ -3,17 +3,16 @@ class CommentsController < ApplicationController
   before_action :authenticate!, only: [:create, :edit, :update, :new, :destroy]
 
   def index
-    @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
-    @post = Post.includes(:comments).find_by(id: params[:post_id])
+    @post = Post.includes(:comments).friendly.find(params[:post_id])
     @comments = @post.comments.order(created_at: :desc).page params[:page]
+    @topic = Topic.friendly.find(params[:topic_id])
     @comment = Comment.new
-
   end
 
   def create
-    @post = Post.find_by(id: params[:post_id])
-    @topic = @post.topic
-    @comment = current_user.comments.build(comment_params.merge(post_id: params[:post_id]))
+    @topic = Topic.friendly.find(params[:topic_id])
+    @post = Post.friendly.find(params[:post_id])
+    @comment = current_user.comments.build(comment_params.merge(post_id: @post.id))
     @new_comment = Comment.new
 
     if @comment.save
@@ -46,14 +45,13 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find_by(id: params[:id])
-    @post = @comment.post
-    @topic = @post.topic
+
+    authorize @comment
 
     if @comment.destroy
       CommentBroadcastJob.perform_now("destroy", @comment)
       flash.now[:success] = "Comment Deleted!"
     end
-    authorize @comment
 
   end
 

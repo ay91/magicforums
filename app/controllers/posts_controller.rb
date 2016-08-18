@@ -4,15 +4,15 @@ class PostsController < ApplicationController
 
 
   def index
-    @topic = Topic.includes(:posts).find_by(id: params[:topic_id])
+    @topic = Topic.includes(:posts).friendly.find(params[:topic_id])
     @posts = @topic.posts.order(created_at: :desc).page params[:page]
     @post = Post.new
 
   end
 
   def create
-    @topic = Topic.find_by(id: params[:topic_id])
-    @post = current_user.posts.build(post_params.merge(topic_id: params[:topic_id]))
+    @topic = Topic.friendly.find(params[:topic_id])
+    @post = current_user.posts.build(post_params.merge(topic_id: @topic.id))
     @new_post = Post.new
 
       if @post.save
@@ -23,14 +23,14 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.friendly.find(params[:id])
     @topic = @post.topic
     authorize @post
   end
 
   def update
-    @topic = Topic.find_by(id: params[:topic_id])
-    @post = Post.find_by(id: params[:id])
+    @post = Post.friendly.find(params[:id])
+    @topic = @post.topic
 
       if @post.update(post_params)
         flash.now[:success] = "Post Updated"
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
     end
 
   def destroy
-    @post = Post.find_by(id: params[:id])
+    @post = Post.friendly.find(params[:id])
     @topic = @post.topic
     authorize @post
 
