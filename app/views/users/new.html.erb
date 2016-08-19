@@ -1,5 +1,5 @@
-<div class="form-container">
-    <%= form_for(@user, url: users_path, html: { id: "user-create-form" }) do |f| %>
+<!-- <div class="form-container">
+    <%= form_for(user, url: users_path, html: { id: "user-create-form" }) do |f| %>
     <h1 class="text-center">
         Register As New User
     </h1>
@@ -7,8 +7,8 @@
     <div class="form-group">
       <h4><%=f.label :image, "Profile Picture", class: "form-text"%></h4>
         <div id="preview-image">
-            <% if @user.image? %>
-            <%= image_tag @user.image, class: "img-settings img-responsive center-block" %>
+            <% if user.image? %>
+            <%= image_tag user.image, class: "img-settings img-responsive center-block" %>
             <% end %>
         </div>
 
@@ -40,4 +40,4 @@
     </div>
 
     <% end %>
-</div>
+</div> -->

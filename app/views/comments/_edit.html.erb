@@ -1,7 +1,5 @@
 <div class="form-container" id="comment-update">
-
     <%= form_for(comment, url: topic_post_comment_path(topic, post, comment), remote: true ,html: { id: "comment-update-form" }) do |f| %>
-
 
     <div class="form-group">
       <h4> <%= f.label :text_field, "Body", class:"form-text" %> </h4>
@@ -16,4 +14,4 @@
     </div>
 
     <% end %>
-  </div>
+</div>

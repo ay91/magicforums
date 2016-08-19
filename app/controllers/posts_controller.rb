@@ -43,7 +43,7 @@ class PostsController < ApplicationController
     authorize @post
 
       if @post.destroy
-        flash.now[:success] = "Post Deleted!"
+        flash.now[:danger] = "Post Deleted!"
       end
   end
 

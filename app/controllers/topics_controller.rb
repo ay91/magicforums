@@ -42,7 +42,7 @@ class TopicsController < ApplicationController
     authorize @topic
 
       if @topic.destroy
-        flash.now[:success] = "Topic Deleted!"
+        flash.now[:danger] = "Topic Deleted!"
 
       end
   end

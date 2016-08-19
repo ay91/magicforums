@@ -50,7 +50,7 @@ class CommentsController < ApplicationController
 
     if @comment.destroy
       CommentBroadcastJob.perform_now("destroy", @comment)
-      flash.now[:success] = "Comment Deleted!"
+      flash.now[:danger] = "Comment Deleted!"
     end
 
   end
