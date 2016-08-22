@@ -1,25 +1,12 @@
-.img-settings{
-  height: 300px;
-  width: 300px;
-}
+label.form-text {
+    margin-left: 0;
+  }
 
-.preview-image{
-  width: 300px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  height: 10px;
-}
+input#user_image_field {
+    width: 300px;
+    margin-left: 0;
+  }
 
-.form-control{
-  max-width: 600px;
-  margin: 10px auto;
-  height: 40px;
-}
-
-.form-group{
-  margin-top: 50px;
-}
-
-.form-text{
-  margin-left: 430px;
+img.img-settings.img-responsive.center-block {
+    margin: 0;
 }

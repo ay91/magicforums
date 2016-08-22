@@ -1,4 +1,4 @@
-  imagePreviewFunctions = () ->
+imagePreviewFunctions = () ->
     $('.image-uploader').on 'change', (event) ->
 
       files = event.target.files

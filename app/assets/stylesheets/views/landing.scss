@@ -183,4 +183,17 @@
     clear: both;
     visibility: hidden;
   }
+
+  .carousel-img{
+    max-height: 500px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .carousel{
+    height: 500px;
+    width: 1200px;
+    margin: 50px auto;
+  }
+
 }

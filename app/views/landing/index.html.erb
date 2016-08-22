@@ -5,8 +5,6 @@
             <hr class="line">
             <%if current_user%>
             <%=link_to "Welcome, #{current_user.username}",edit_user_path(current_user), class: "Button"%>
-            <%else%>
-            <%=link_to "Join Us", new_user_path, class: "Button"%>
             <%end%>
         </div>
     </div>
@@ -78,6 +76,48 @@
 
     </section>
 
+    <section>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <%=image_tag "pic1.jpeg", class:'carousel-img'%>
+        </div>
+
+        <div class="item">
+            <%=image_tag "pic2.jpeg", class:'carousel-img'%>
+        </div>
+
+        <div class="item">
+          <%=image_tag "pic3.jpeg", class:'carousel-img'%>
+        </div>
+
+        <div class="item">
+           <%=image_tag "pic4.jpeg", class:'carousel-img'%>
+        </div>
+      </div>
+
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    </section>
+
+
     <hr class="break">
     <div class="Contact-info">
         <h1 class="text-center">Need an expert advice?
@@ -99,5 +139,6 @@
             </div>
         </div>
     </div>
+
 
 </div>

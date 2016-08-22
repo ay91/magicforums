@@ -1,0 +1,56 @@
+<div class="modal fade" id="modalregister" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Register As New User</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-container">
+                    <%= form_for(:user, url: users_path, html: { id: "user-create-form" }) do |f| %>
+                    <div class="form-group">
+                        <h4><%=f.label :image, "Profile Picture", class: "form-text"%></h4>
+
+                        <div id="preview-image">
+                        </div>
+
+                        <div class="preview-cancel btn-link">
+                          Cancel
+                        </div>
+
+                        <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
+
+                        <h4>
+                            <%= f.label :email_field, "Email", class: "form-text" %>
+                        </h4>
+                        <%= f.text_field :email, required: true, id: "user_email_field", class: 'form-control' %>
+
+                        <h4>
+                            <%= f.label :password, class: "form-text" %>
+                        </h4>
+                        <%= f.password_field :password, required: true, id: "user_password_field", class: 'form-control' %>
+
+                        <h4>
+                            <%= f.label :password_confirmation, class: "form-text" %>
+                        </h4>
+                        <%= f.password_field :password_confirmation, required: true, id: "user_password_field", class: 'form-control' %>
+
+                        <h4>
+                            <%= f.label :username_field, "Username", class: "form-text" %>
+                        </h4>
+                        <%= f.text_field :username, required: true, id: "user_username_field", class: 'form-control' %>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" name="commit" value="Register" class="btn btn-primary btn-lg" data-disable-with="Register">
+                    </div>
+                    <% end %>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
