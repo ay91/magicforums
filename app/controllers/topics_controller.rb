@@ -32,7 +32,7 @@ class TopicsController < ApplicationController
 
   def update
     @topic = Topic.friendly.find(params[:id])
-
+    authorize @topic
       if @topic.update(topic_params)
         flash.now[:success] = "Topic Updated!"
       end

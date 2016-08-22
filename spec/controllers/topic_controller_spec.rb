@@ -63,11 +63,45 @@ RSpec.describe TopicsController , type: :controller do
     end
 
     it "should deny user" do
-      get :edit, session: {id: @user.id}
+      get :edit, session: {id: @user.id}, params: {id: @topic.id}
+      @topic = Topic.first
+
+      expect(flash[:danger]).to eql("You're not authorized")
     end
 
     it "should render edit for admin" do
+      get :edit, session: {id: @admin.id}, params: {id: @topic.id}
+      @topic = Topic.first
 
+      expect(subject).to render_template(:edit)
+    end
+  end
+
+  describe "update topic" do
+    it "should deny if user not logged in" do
+      @topic = Topic.first
+      params = {id: @topic.id, topic: {title:"New title 123", description: "New Description"}}
+      get :update, params: params
+      expect(flash[:danger]).to eql("You need to login first")
+    end
+
+    it "should render update if admin" do
+        @topic = Topic.first
+        params = {id: @topic.id, topic: {title: "New title 123", description: "New Description"}}
+        get :update, params: params, session: @admin.id
+
+        @topic.reload
+        expect(@topic.title).to eql("New title 123")
+        expect(@topic.description).to eql("New Description")
+        expect(flash[:success]).to eql("Topic Updated!")
+        expect(subject).to redirect_to(edit_topic_path(@topic))
+    end
+
+    it "should deny if user not admin" do
+      @topic = Topic.first
+      params = {id: @topic.id, topic: {title:"New title 123", description: "New Description"}}
+      get :update, params: params, session: @user.id
+      expect(flash[:danger]).to eql("You're not authorized")
     end
   end
 
