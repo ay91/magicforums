@@ -23,7 +23,7 @@ RSpec.describe UsersController, type: :controller do
   describe "edit user" do
     it "should redirect if not logged in" do
       params= { id: @user.id }
-      get :edit, params: params
+      get :edit, params: { id: @user.id }
 
       expect(subject).to redirect_to(root_path)
       expect(flash[:danger]).to eql("You need to login first")
