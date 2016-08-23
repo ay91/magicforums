@@ -8,6 +8,10 @@ class CommentPolicy < ApplicationPolicy
     edit?
   end
 
+  def update?
+    edit?
+  end   
+
   private
 
   def user_has_power?

@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post
     @topic = @post.topic
+    authorize @comment
 
     if @comment.update(comment_params)
       CommentBroadcastJob.perform_later("update", @comment)

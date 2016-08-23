@@ -20,6 +20,7 @@ class PostsController < ApplicationController
       else
         flash.now[:danger] = @post.errors.full_messages
       end
+
   end
 
   def edit
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.friendly.find(params[:id])
     @topic = @post.topic
+    authorize @post
 
       if @post.update(post_params)
         flash.now[:success] = "Post Updated"

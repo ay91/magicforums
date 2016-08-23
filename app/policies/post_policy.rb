@@ -1,10 +1,14 @@
 class PostPolicy < ApplicationPolicy
 
   def edit?
-    user.present? && record.user == user || user_has_power?
+    user.present? && (record.user == user || user_has_power?)
   end
 
   def destroy?
+    edit?
+  end
+
+  def update?
     edit?
   end
 

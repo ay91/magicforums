@@ -35,7 +35,6 @@ RSpec.describe TopicsController , type: :controller do
     it "should create topic for admin" do
       params = {topic: {title: "New title 12345", description: "New title 12345"}}
       post :create, params: params, session: {id: @admin.id}
-
       topic = Topic.find_by(title: "New title 12345")
 
       expect(Topic.count).to eql(2)
@@ -58,19 +57,20 @@ RSpec.describe TopicsController , type: :controller do
 
   describe "edit topic" do
     it "should deny if user not logged in" do
-      get :edit
+      @topic = Topic.first
+      get :edit,  xhr: true, params: {id: @topic.id}
       expect(flash[:danger]).to eql("You need to login first")
     end
 
     it "should deny user" do
-      get :edit, session: {id: @user.id}, params: {id: @topic.id}
+      get :edit, session: {id: @user.id}, params: {id: @topic.id},  xhr: true
       @topic = Topic.first
 
       expect(flash[:danger]).to eql("You're not authorized")
     end
 
     it "should render edit for admin" do
-      get :edit, session: {id: @admin.id}, params: {id: @topic.id}
+      get :edit, session: {id: @admin.id}, params: {id: @topic.id},  xhr: true
       @topic = Topic.first
 
       expect(subject).to render_template(:edit)
@@ -81,30 +81,50 @@ RSpec.describe TopicsController , type: :controller do
     it "should deny if user not logged in" do
       @topic = Topic.first
       params = {id: @topic.id, topic: {title:"New title 123", description: "New Description"}}
-      get :update, params: params
+      patch :update, params: params,  xhr: true
       expect(flash[:danger]).to eql("You need to login first")
     end
 
     it "should render update if admin" do
         @topic = Topic.first
         params = {id: @topic.id, topic: {title: "New title 123", description: "New Description"}}
-        get :update, params: params, session: @admin.id
+        patch :update, params: params, session: {id: @admin.id},  xhr: true
 
         @topic.reload
         expect(@topic.title).to eql("New title 123")
         expect(@topic.description).to eql("New Description")
         expect(flash[:success]).to eql("Topic Updated!")
-        expect(subject).to redirect_to(edit_topic_path(@topic))
     end
 
     it "should deny if user not admin" do
       @topic = Topic.first
       params = {id: @topic.id, topic: {title:"New title 123", description: "New Description"}}
-      get :update, params: params, session: @user.id
+      patch :update, params: params, session: { id: @user.id },  xhr: true
       expect(flash[:danger]).to eql("You're not authorized")
     end
   end
 
+  describe "Delete topic" do
+    it "should deny user if not logged in" do
+      @topic = Topic.first
+      delete :destroy, params: {id: @topic.id}, xhr: true
+      expect(flash[:danger]).to eql("You need to login first")
 
+    end
+
+    it "should deny user if not admin" do
+      @topic = Topic.first
+      delete :destroy, params: {id: @topic.id}, xhr: true, session: {id: @user.id}
+      expect(flash[:danger]).to eql("You're not authorized")
+    end
+
+    it "should render delete if admin" do
+      @topic = Topic.first
+      delete :destroy, params: {id: @topic.id}, xhr: true, session: {id: @admin.id}
+
+      expect(flash[:danger]).to eql("Topic Deleted!")
+      expect(Topic.count).to eql(0)
+    end
+  end
 
 end
