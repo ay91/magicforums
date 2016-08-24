@@ -2,9 +2,13 @@ require 'rails_helper'
 
 RSpec.describe TopicsController , type: :controller do
   before(:all) do
-    @admin = User.create(username: "t", email: "t@t.com", password: "123", role: "admin")
-    @user = User.create(username: "s", email: "s@s.com", password: "123")
-    @topic = Topic.create(title: "testing1234", description: "testing1234")
+    # @admin = User.create(username: "t", email: "t@t.com", password: "123", role: "admin")
+    # @user = User.create(username: "s", email: "s@s.com", password: "123")
+    # @topic = Topic.create(title: "testing1234", description: "testing1234")
+
+    @admin = create(:user, :admin)
+    @user = create(:user, :sequenced_email, :sequenced_username)
+    3.times {create(:topic, :sequenced_title, :sequenced_description)}
   end
 
   describe "topics index" do
@@ -37,7 +41,7 @@ RSpec.describe TopicsController , type: :controller do
       post :create, params: params, session: {id: @admin.id}
       topic = Topic.find_by(title: "New title 12345")
 
-      expect(Topic.count).to eql(2)
+      expect(Topic.count).to eql(4)
       expect(topic.title).to eql("New title 12345")
       expect(topic.description).to eql("New title 12345")
       expect(flash[:success]).to eql("You've created a new topic.")
@@ -63,8 +67,8 @@ RSpec.describe TopicsController , type: :controller do
     end
 
     it "should deny user" do
-      get :edit, session: {id: @user.id}, params: {id: @topic.id},  xhr: true
       @topic = Topic.first
+      get :edit, session: {id: @user.id}, params: {id: @topic.id},  xhr: true
 
       expect(flash[:danger]).to eql("You're not authorized")
     end
@@ -123,7 +127,7 @@ RSpec.describe TopicsController , type: :controller do
       delete :destroy, params: {id: @topic.id}, xhr: true, session: {id: @admin.id}
 
       expect(flash[:danger]).to eql("Topic Deleted!")
-      expect(Topic.count).to eql(0)
+      expect(Topic.count).to eql(2)
     end
   end
 

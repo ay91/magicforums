@@ -13,4 +13,4 @@ imagePreviewFunctions = () ->
         img.classList = "img-responsive img-settings center-block"
         $('#preview-image').html(img)
 
-  $(document).on 'turbolinks:load', imagePreviewFunctions
+$(document).on 'turbolinks:load', imagePreviewFunctions

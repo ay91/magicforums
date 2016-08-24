@@ -2,12 +2,16 @@ require 'rails_helper'
 
 RSpec.describe PostsController , type: :controller do
   before(:all) do
-    @topic = Topic.create(title: "testing123456", description: "testing1234567")
-    @admin = User.create(username: "t", email: "t@t.com", password: "123", role: "admin")
-    @user = User.create(username: "s", email: "s@s.com", password: "123")
-    @post = Post.create(title: "testing1234", body: "testing1234", topic_id: @topic.id, user_id: @user.id)
-    @unauthorized_user = User.create(username: "q", email: "q@q.com", password: "123")
-
+    # @topic = Topic.create(title: "testing123456", description: "testing1234567")
+    # @admin = User.create(username: "t", email: "t@t.com", password: "123", role: "admin")
+    # @user = User.create(username: "s", email: "s@s.com", password: "123")
+    # @post = Post.create(title: "testing1234", body: "testing1234", topic_id: @topic.id, user_id: @user.id)
+    # @unauthorized_user = User.create(username: "q", email: "q@q.com", password: "123")
+    @topic = create(:topic)
+    @user = create(:user)
+    @admin = create(:user, :admin, :sequenced_email, :sequenced_username)
+    @unauthorized_user = create(:user, :sequenced_email, :sequenced_username)
+    4.times{create(:post, :sequenced_title, :sequenced_body, topic_id: @topic.id, user_id: @user.id)}
   end
 
   describe 'posts index' do
@@ -33,7 +37,7 @@ RSpec.describe PostsController , type: :controller do
       expect(post.title).to eql("testing 21334")
       expect(post.body).to eql("testing 21334")
       expect(flash[:success]).to eql("You've created a new post")
-      expect(Post.count).to eql(2)
+      expect(Post.count).to eql(5)
     end
   end
     describe 'edit post' do
@@ -110,7 +114,7 @@ RSpec.describe PostsController , type: :controller do
       delete :destroy, params: {topic_id: @topic.id, id: @post.id}, xhr: true, session: {id: @user.id}
       @post = Post.find_by(id: @post.id)
 
-      expect(Post.count).to eql(0)
+      expect(Post.count).to eql(3)
       expect(@post).to be_nil
     end
 
@@ -119,7 +123,7 @@ RSpec.describe PostsController , type: :controller do
       delete :destroy, params: {topic_id: @topic.id, id: @post.id}, xhr: true, session: {id: @admin.id}
       @post = Post.find_by(id: @post.id)
 
-      expect(Post.count).to eql(0)
+      expect(Post.count).to eql(3)
       expect(@post).to be_nil
     end
   end
