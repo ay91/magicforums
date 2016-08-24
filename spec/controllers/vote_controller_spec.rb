@@ -27,7 +27,7 @@ RSpec.describe VotesController , type: :controller do
     end
 
     it "should find vote if vote exist" do
-      @vote_up = Vote.create(comment_id: @comment.id, user_id: @user.id, value: 1)
+      @vote_up = Vote.create(comment_id: @comment.id, user_id: @user.id)
       expect(Vote.count).to eql(1)
       params = {comment_id: @comment.id}
       post :upvote, params: params, xhr: true, session: {id: @user.id}
@@ -36,11 +36,10 @@ RSpec.describe VotesController , type: :controller do
     end
 
     it "should +1 to upvote" do
-      @vote_up = Vote.create(comment_id: @comment.id, user_id: @user.id, value: 1)
       params = {comment_id: @comment.id}
       post :upvote, params: params, xhr: true, session: {id: @user.id}
 
-      expect(@vote_up.value).to eql(1)
+      expect(assigns[:vote].value).to eql(1)
       expect(flash[:success]).to eql("Upvoted!")
     end
   end
@@ -70,11 +69,10 @@ RSpec.describe VotesController , type: :controller do
     end
 
     it "should -1 to downvote" do
-      @vote_down = Vote.create(comment_id: @comment.id, user_id: @user.id, value: -1)
       params = {comment_id: @comment.id}
       post :downvote, params: params, xhr: true, session: {id: @user.id}
 
-      expect(@vote_down.value).to eql(-1)
+      expect(assigns[:vote].value).to eql(-1)
       expect(flash[:danger]).to eql("Downvoted!")
     end
   end
