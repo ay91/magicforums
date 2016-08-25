@@ -2,12 +2,10 @@ require 'rails_helper'
 
 RSpec.describe VotesController , type: :controller do
   before(:all) do
-    @user = User.create(username: "s", email: "s@s.com", password: "123")
-    @admin = User.create(username: "t", email: "t@t.com", password: "123", role: "admin")
-    @topic = Topic.create(title: "testing123456", description: "testing1234567", user_id: @admin.id)
-    @post = Post.create(title: "testing12345", body: "testing1234556", topic_id: @topic.id, user_id: @user.id)
-    @comment = Comment.create(body: "testing12345", post_id: @post.id, user_id: @user.id)
-
+    # @user = User.create(username: "s", email: "s@s.com", password: "123")
+    # @admin = User.create(username: "t", email: "t@t.com", password: "123", role: "admin")
+    @user = create(:user, :sequenced_email, :sequenced_username)
+    @comment = create(:comment)
 
   end
 
@@ -20,11 +18,15 @@ RSpec.describe VotesController , type: :controller do
 
     it "should create vote if vote not exist" do
       params = {comment_id: @comment.id}
+      expect(Vote.all.count).to eql(0)
       post :upvote, params: params, xhr: true, session: {id: @user.id}
 
       expect(Vote.count).to eql(1)
-
+      expect(Vote.first.user).to eql(@user)
+      expect(Vote.first.comment).to eql(@comment)
+      expect(assigns[:vote]).to_not be_nil
     end
+
 
     it "should find vote if vote exist" do
       @vote_up = Vote.create(comment_id: @comment.id, user_id: @user.id)
@@ -33,6 +35,7 @@ RSpec.describe VotesController , type: :controller do
       post :upvote, params: params, xhr: true, session: {id: @user.id}
 
       expect(Vote.count).to eql(1)
+      expect(assigns[:vote]).to eql(@vote_up)
     end
 
     it "should +1 to upvote" do
@@ -52,11 +55,14 @@ RSpec.describe VotesController , type: :controller do
     end
 
     it "should create vote if vote not exist" do
+      expect(Vote.count).to eql(0)
       params = {comment_id: @comment.id}
       post :downvote, params: params, xhr: true, session: {id: @user.id}
 
       expect(Vote.count).to eql(1)
-
+      expect(Vote.first.user).to eql(@user)
+      expect(Vote.first.comment).to eql(@comment)
+      expect(assigns[:vote]).to_not be_nil
     end
 
     it "should find vote if vote exist" do

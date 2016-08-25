@@ -4,6 +4,7 @@ class VotesController < ApplicationController
   before_action :find_or_create_vote
 
   def upvote
+  
     vote_value(1)
     flash.now[:success] = "Upvoted!"
   end
