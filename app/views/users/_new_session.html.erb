@@ -17,7 +17,7 @@
 
                 <div class="form-group">
                     <h4><%= label_tag "Password",nil, class: "form-text" %></h4>
-                    <%= password_field_tag :password, nil, id: "user_password_field", :placeholder => "Enter password", class:
+                    <%= password_field_tag :password, nil, id: "user_password_field", :placeholder => "Enter password", required: true, class:
             'form-control' %>
                 </div>
 
@@ -27,7 +27,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="submit" name="commit" value="Login" class="btn btn-primary btn-lg" data-disable-with="Login">
+                    <input type="submit" name="commit" value="Log in" class="btn btn-primary btn-lg" data-disable-with="Log in">
                 </div>
                 <% end %>
 

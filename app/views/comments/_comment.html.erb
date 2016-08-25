@@ -4,7 +4,7 @@
         <div class="comment-button-container">
           <div class="comment-button align">
             <% if comment.user == current_user %>
-            <%=link_to "Edit", edit_topic_post_comment_path(topic, post, comment), remote: true, class: 'btn btn-info' %>
+            <%=link_to "Edit", edit_topic_post_comment_path(topic, post, comment), remote: true, class: 'btn btn-info'%>
             <%end%>
             <% if comment.user == current_user || current_user&.admin? || current_user&.moderator? %>
             <%=link_to "Delete", topic_post_comment_path(topic, post, comment), remote: true, method: :delete, data: {Confirm: "Delete?"}, class:'btn btn-danger'%>
