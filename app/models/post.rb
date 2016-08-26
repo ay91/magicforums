@@ -10,4 +10,14 @@ class Post < ApplicationRecord
 
   validates :title, length: {minimum: 3}, presence: true
   validates :body, length: {minimum: 10}, presence: true
+
+  before_save :update_slug
+
+  private
+
+  def update_slug
+    if title
+      self.slug = title.gsub(" ", "-")
+    end
+  end
 end

@@ -11,6 +11,17 @@ class User < ApplicationRecord
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :email, presence: true, uniqueness: true, format: {with: VALID_EMAIL_REGEX}
+  validates :username, presence: true, uniqueness: true
 
   enum role: [:user, :moderator, :admin]
+
+  before_save :update_slug
+
+  private
+
+  def update_slug
+    if username
+      self.slug = username.gsub(" ", "-")
+    end
+  end
 end

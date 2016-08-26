@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
   belongs_to :post
   belongs_to :user
   paginates_per 4
@@ -9,4 +9,5 @@ class Comment < ApplicationRecord
   def total_votes
     votes.pluck(:value).sum
   end
+
 end
