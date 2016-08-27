@@ -41,30 +41,39 @@
 .img-settings{
   height: 300px;
   width: 300px;
+  margin: 0 auto;
 }
 
-.preview-image{
-  width: 300px;
-  margin-top: 20px;
-  margin-bottom: 50px;
-  height: 10px;
-}
+// #preview-image{
+//   width: 300px;
+//   margin-top: 20px;
+//   margin-bottom: 50px;
+//   height: 300px;
+// }
 
 .form-control{
   margin: 0 auto;
   max-width: 800px;
 }
 
-.form-container{
+.post-create{
   margin-top: 50px;
+  margin-bottom: 50px;
+  border: 2px solid #3b5998;
+  border-radius: 2px;
+  width: 800px;
+  height: 380px;
+  margin: 20px auto;
+  background-color: #e6f5ff;
 }
 
 #post_image_field{
-  margin-left: 424px;
+  // margin-left: 424px;
+  width: 300px;
 }
 
 .form-text{
-    margin-right: 900px;
+    margin-left: 0;
 }
 
 .post-title{
@@ -75,5 +84,9 @@
 .post-body{
   font-size: 15px;
   margin-top: 10px;
-
 }
+
+// .input-img{
+//   height: 300px;
+//   width: 300px;
+// }

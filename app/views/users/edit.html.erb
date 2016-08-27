@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container text-center">
 
     <%= form_for(current_user, url: user_path(current_user), html: { id: "user-edit-form" }) do |f| %>
     <h1 class="text-center">
@@ -13,7 +13,7 @@
         <% end %>
       </div>
 
-        <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
+      <%= f.file_field :image, id: "user_image_field", class: 'form-control image-uploader' %>
 
         <h4> <%= f.label :email_field, "Email", class: 'form-text' %> </h4>
         <%= f.text_field :email, required: true, id: "user_email_field", class: 'form-control' %>
